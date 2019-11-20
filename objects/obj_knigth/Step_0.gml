@@ -26,11 +26,21 @@ switch(state) {
 		set_state_sprite(spr_knight_attack, 0.6, 0);
 		
 		if (animation_hit_frame(4))
-			create_hitbox(x, y, self, spr_skeleton_attack_one_damage, 4, 4, 1, image_xscale);
+			create_hitbox(x, y, self, spr_skeleton_attack_one_damage, 4, 4, 10, image_xscale);
 	
 		
 		if(animation_end()) 
 			state = "chase";
 	#endregion
+	break;
+	
+	case "knockback" :
+		#region Knockback State
+			knockback_state(spr_knight_hitstun, "chase");
+		#endregion
+	break;
+	
+	default :
+		state = "chase";
 	break;
 }
