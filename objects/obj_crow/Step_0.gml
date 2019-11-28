@@ -14,4 +14,13 @@ switch (state) {
 			}
 		#endregion
 	break;
+	
+	case "death" : 
+		#region Death State
+			repeat (6) {
+				instance_create_layer(x + random_range(-4, 4), y - 16 +  random_range(-4, 4), "Effects", obj_feather)	;
+			}
+			instance_destroy();
+		#endregion
+	break;
 }

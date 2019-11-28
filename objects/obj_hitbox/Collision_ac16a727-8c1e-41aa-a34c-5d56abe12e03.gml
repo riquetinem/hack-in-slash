@@ -11,7 +11,7 @@ if (instance_exists(obj_skeleton)){
 		obj_skeleton.kills++;
 	
 	if (other.object_index == obj_skeleton) {
-		
+		// We hit the player
 		add_screenshake(6, 10);
 		
 		if (other.hp <= 0){
@@ -29,6 +29,7 @@ if (instance_exists(obj_skeleton)){
 			}
 		}
 	} else {
+		// We hit an enemy
 		other.alarm[0] = 120;	
 		add_screenshake(2, 5);
 	}
@@ -37,6 +38,9 @@ if (instance_exists(obj_skeleton)){
 }
 
 ds_list_add(hitObjects, other);
-other.state = "knockback";
+
+if (other.state != "death")
+	other.state = "knockback";
+	
 other.knockbackSpeed = knockBack * image_xscale;
 other.image_xscale = -image_xscale;

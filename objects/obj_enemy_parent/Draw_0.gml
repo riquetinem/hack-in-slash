@@ -1,5 +1,8 @@
 draw_self();
 
+if (state == "death")
+	exit;
+
 if (alarm[0] > 0) {
 	var height = sprite_height;
 	// preenchendo o spr com branco em relação a vida do inimigo
