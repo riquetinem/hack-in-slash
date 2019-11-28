@@ -5,11 +5,11 @@ var hpY = 8;
 var hpWidth = 198;
 var hpHeight = 6;
 
-if(instance_exists(obj_skeleton)){
-	drawHp = approach(drawHp, obj_skeleton.hp, 0.2);
+if(instance_exists(obj_skeleton)) {
+	drawHp = lerp(drawHp, obj_skeleton.hp, 0.2);
 	drawMaxHp = obj_skeleton.max_hp;
-}else{
-	drawHp = approach(drawHp, 0, 0.2);
+} else {
+	drawHp = lerp(drawHp, 0, 0.2);
 }
 
 // life bar
