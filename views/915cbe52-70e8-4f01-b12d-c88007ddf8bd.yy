@@ -9,7 +9,8 @@
         "b8913db0-3978-418d-ace4-ed31745e2f53",
         "8aaddfa3-b2df-43dd-bbff-ef75e49b50a3",
         "e911bc3b-019c-4420-8f8a-d9cb42c71a45",
-        "2cd0fe8a-5420-4a43-af8b-e1ec0f74e50a"
+        "2cd0fe8a-5420-4a43-af8b-e1ec0f74e50a",
+        "fb4a4224-3066-4e6e-a008-0c6b0980fbc5"
     ],
     "filterType": "GMSprite",
     "folderName": "Knight",

@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "0070995d-d175-4174-8d04-e5f3bc4ab159",
+            "Value": {
+                "id": "cea12901-7bb8-4d69-bab5-7e1ae72a3a03",
+                "resourcePath": "objects\\obj_hit_effect\\obj_hit_effect.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "01074b06-bb08-4b6a-a50b-a8110e2ab55e",
             "Value": {
                 "id": "f1fcd464-e82d-4257-ab54-8209822a8a3d",
@@ -364,6 +372,14 @@
                 "id": "8ceca9cb-5697-421c-a267-44c20ccf95e1",
                 "resourcePath": "scripts\\create_hitbox\\create_hitbox.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7c87fd8d-6d8c-40d5-8a61-4b0d79c98bf8",
+            "Value": {
+                "id": "a0450317-733d-4d39-b067-0630778200db",
+                "resourcePath": "sprites\\spr_hit\\spr_hit.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -836,6 +852,14 @@
                 "id": "6a4810c0-71f1-4f2a-876c-85fe94222bd4",
                 "resourcePath": "options\\xboxone\\options_xboxone.yy",
                 "resourceType": "GMXBoxOneOptions"
+            }
+        },
+        {
+            "Key": "fb4a4224-3066-4e6e-a008-0c6b0980fbc5",
+            "Value": {
+                "id": "fccdfbc2-cf00-4b7a-8141-8286809cfcf2",
+                "resourcePath": "sprites\\spr_enemy_healthbar\\spr_enemy_healthbar.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

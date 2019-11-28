@@ -2,6 +2,9 @@ if (creator == noone || creator == other || ds_list_find_index(hitObjects, other
 	exit;
 
 other.hp -= damage;
+repeat (10) {
+	instance_create_layer(other.x, other.y - 12, "Effects", obj_hit_effect);
+}
 
 if (instance_exists(obj_skeleton)){
 	if (creator.object_index == obj_skeleton && other.hp <= 0)
@@ -25,6 +28,9 @@ if (instance_exists(obj_skeleton)){
 					bone.image_angle = 130;
 			}
 		}
+	} else {
+		other.alarm[0] = 120;	
+		add_screenshake(2, 5);
 	}
 } else {
 	exit;
