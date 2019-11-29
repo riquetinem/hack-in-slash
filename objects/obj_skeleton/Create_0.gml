@@ -1,11 +1,8 @@
 event_inherited();
 image_speed = 0.4;
-
 spd = 2;
 spdRoll = 3;
-
 state = "move";
-
 kills = 0;
 level = 1;
 experience = 0;

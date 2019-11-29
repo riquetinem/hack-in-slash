@@ -17,6 +17,7 @@ switch (state) {
 	
 	case "death" : 
 		#region Death State
+		audio_play_sound(a_crow_pop, 1, false);
 			repeat (6) {
 				instance_create_layer(x + random_range(-4, 4), y - 16 +  random_range(-4, 4), "Effects", obj_feather)	;
 			}

@@ -18,6 +18,9 @@ switch (state) {
 		if (!input.left && !input.rigth){
 			sprite_index = spr_skeleton_idle;	
 			image_speed = 0.4;
+		} else {
+			if(animation_hit_frame(2) || animation_hit_frame(5))
+				audio_play_sound(a_footstep, 2, false);
 		}
 	
 		if(input.roll)
@@ -26,8 +29,6 @@ switch (state) {
 	
 		if (input.attack)
 			state = "attack1";
-	
-	
 		#endregion
 	break;
 
@@ -49,9 +50,10 @@ switch (state) {
 		#region Attack One State
 		set_state_sprite(spr_skeleton_attack_one, 0.7, 0);
 	
-		if (animation_hit_frame(0))
+		if (animation_hit_frame(0)){
+			audio_play_sound(a_miss, 3, false);
 			create_hitbox(x, y, self, spr_skeleton_attack_one_damage, 3, 4, 5, image_xscale);
-	
+		}
 		if (input.attack && animation_hit_frame_range(2, 4)) 
 			state = "attack2";
 	
@@ -64,9 +66,11 @@ switch (state) {
 		#region Attack Two State
 		set_state_sprite(spr_skeleton_attack_two, 0.7, 0);
 	
-		if (animation_hit_frame(1))
+		if (animation_hit_frame(1)){
+			audio_play_sound(a_miss, 3, false);
 			create_hitbox(x, y, self, spr_skeleton_attack_two_damage, 3, 4, 5, image_xscale);
-	
+		}
+		
 		if (input.attack && animation_hit_frame_range(2, 4)) 
 			state = "attack3";
 	
@@ -79,8 +83,10 @@ switch (state) {
 		#region Attack Three State
 		set_state_sprite(spr_skeleton_attack_three, 0.7, 0);
 	
-		if (animation_hit_frame(2))
+		if (animation_hit_frame(2)) {
+			audio_play_sound(a_miss, 3, false);	
 			create_hitbox(x, y, self, spr_skeleton_attack_three_damage, 4, 4, 8, image_xscale);
+		}
 		
 		if(animation_end()) 
 			state = "move";

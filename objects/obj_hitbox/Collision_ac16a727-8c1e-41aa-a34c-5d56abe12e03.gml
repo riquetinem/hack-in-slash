@@ -2,12 +2,13 @@ if (creator == noone || creator == other || ds_list_find_index(hitObjects, other
 	exit;
 
 other.hp -= damage;
+audio_play_sound(a_medium_hit, 4, false);
 repeat (10) {
 	instance_create_layer(other.x, other.y - 12, "Effects", obj_hit_effect);
 }
 
 if (instance_exists(obj_skeleton)){
-	if (creator.object_index == obj_skeleton && other.hp <= 0)
+	if (creator.object_index == obj_skeleton && other.hp <= 0 && other.state != "death")
 		obj_skeleton.kills++;
 	
 	if (other.object_index == obj_skeleton) {
@@ -27,6 +28,17 @@ if (instance_exists(obj_skeleton)){
 				if (i == 5)
 					bone.image_angle = 130;
 			}
+			
+			// salvando o melhor score
+			ini_open("save.ini");
+			ini_write_real("Scores", "Kills", other.kills);
+			var highscore = ini_read_real("Scores", "Highscore", 0);
+			// caso o kill atual for maior, ele vira o highscore
+			if (other.kills > highscore) 
+				ini_write_real("Scores", "Highscore", other.kills);
+			
+			// fechar o arquivo
+			ini_close();
 		}
 	} else {
 		// We hit an enemy
@@ -39,8 +51,7 @@ if (instance_exists(obj_skeleton)){
 
 ds_list_add(hitObjects, other);
 
-if (other.state != "death")
+if (other.state != "death" && other.object_index != obj_boss)
 	other.state = "knockback";
 	
 other.knockbackSpeed = knockBack * image_xscale;
-other.image_xscale = -image_xscale;
